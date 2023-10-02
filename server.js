@@ -37,11 +37,12 @@ app.use(express.urlencoded({ extended: false }));
 // static files
 app.use("/", express.static(path.join(__dirname, "./client/dist")));
 
-// routes
-app.use("/", root);
-app.use("/auth", authRoutes);
-app.use("/users", userRoutes);
-app.use("/notes", notesRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/notes", notesRoutes);
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/dist/index.html"));
+});
 
 app.all("*", (req, res) => {
   res.status(404);

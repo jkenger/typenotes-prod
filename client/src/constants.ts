@@ -1,4 +1,4 @@
-export const baseApiUrl = "http://localhost:3500";
+export const baseApiUrl = "/api";
 // export const baseApiUrl = "https://typenotes.onrender.com";
 
 export const userApiUrl = `/users`;
